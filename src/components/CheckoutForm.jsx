@@ -5,8 +5,9 @@ import {
 } from "@stripe/react-stripe-js";
 import { useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
-const CheckoutForm = ({ title, price }) => {
+const CheckoutForm = ({ title, price, isBought, setIsBought }) => {
   // Permet de faire une requête à Stripe pour confirmer le paiement
   const stripe = useStripe();
   // Permet de récupérer le contenu des inputs
@@ -66,6 +67,7 @@ const CheckoutForm = ({ title, price }) => {
       // Si on reçois un status succeeded on fais passer completed à true
       if (stripeResponse.paymentIntent.status === "succeeded") {
         setCompleted(true);
+        setIsBought(true);
       }
 
       // On a fini de charger
@@ -76,11 +78,24 @@ const CheckoutForm = ({ title, price }) => {
   };
 
   return completed ? (
-    <p>Merci pour votre achat !</p>
+    <div className="confirmation-message">
+      <h2>Merci pour votre achat !</h2>
+      <p>Récapitulatif de votre commande : </p>
+      <div>
+        {title} - {Number(price / 100).toFixed(2)} €
+      </div>
+      <Link to="/">
+        <button className="back-home">Retour à la page d'acceuil</button>
+      </Link>
+    </div>
   ) : (
-    <form onSubmit={handleSubmit}>
+    <form className="form-payment" onSubmit={handleSubmit}>
       <PaymentElement />
-      <button type="submit" disabled={!stripe || !elements || isLoading}>
+      <button
+        className="payment-cta"
+        type="submit"
+        disabled={!stripe || !elements || isLoading}
+      >
         Payer
       </button>
       {errorMessage && <div>{errorMessage}</div>}

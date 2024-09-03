@@ -5,6 +5,7 @@ import "./Offer.css";
 import "./Signup.css";
 import "./Login.css";
 import "./Publish.css";
+import "./Payment.css";
 import Header from "./components/Header";
 import Home from "./pages/Home";
 import Offer from "./pages/Offer";

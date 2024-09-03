@@ -84,3 +84,31 @@ form button:hover {
   color: #9e9e9ec4;
   line-height: 16px;
 }
+
+.preview-avatar {
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: #2db0ba 2px solid;
+}
+
+.add-avatar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80px;
+  width: 80px;
+  background-color: white;
+  color: var(--green);
+  border-radius: 50%;
+  font-size: 30px;
+  border: var(--green) 2px solid;
+}
+
+.add-avatar:hover {
+  cursor: pointer;
+  background-color: #2db0ba;
+  color: white;
+  border: white 2px solid;
+}

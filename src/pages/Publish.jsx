@@ -83,6 +83,7 @@ const Publish = ({ isLoggedIn }) => {
         <div>
           <label htmlFor="title">Titre</label>
           <input
+            placeholder="ex: Tee-shirt H&M "
             id="title"
             type="text"
             value={title}
@@ -91,9 +92,10 @@ const Publish = ({ isLoggedIn }) => {
             }}
           />
           <label htmlFor="description">Décris ton article</label>
-          <input
+          <textarea
+            placeholder="ex: Porté quelques fois, taille correctement"
+            rows={3}
             id="descritpion"
-            type="text"
             value={description}
             onChange={(event) => {
               setDescription(event.target.value);
@@ -103,6 +105,7 @@ const Publish = ({ isLoggedIn }) => {
         <div>
           <label htmlFor="brand">Marque</label>
           <input
+            placeholder="ex: Nike"
             id="brand"
             type="text"
             value={brand}
@@ -112,6 +115,7 @@ const Publish = ({ isLoggedIn }) => {
           />
           <label htmlFor="size">Taille</label>
           <input
+            placeholder="ex: L / 40 / 12"
             id="size"
             type="text"
             value={size}
@@ -121,6 +125,7 @@ const Publish = ({ isLoggedIn }) => {
           />
           <label htmlFor="color">Color</label>
           <input
+            placeholder="ex: Rouge "
             id="color"
             type="text"
             value={color}
@@ -130,6 +135,7 @@ const Publish = ({ isLoggedIn }) => {
           />
           <label htmlFor="condition">État</label>
           <input
+            placeholder="ex: Neuf avec étiquette"
             id="condition"
             type="text"
             value={condition}
@@ -139,6 +145,7 @@ const Publish = ({ isLoggedIn }) => {
           />
           <label htmlFor="city">Lieu</label>
           <input
+            placeholder="Paris"
             id="city"
             type="text"
             value={city}
@@ -148,8 +155,11 @@ const Publish = ({ isLoggedIn }) => {
           />
         </div>
         <div>
-          <label htmlFor="price">Prix</label>
+          <label className="price-label" htmlFor="price">
+            Prix <span>(en euros)</span>
+          </label>
           <input
+            placeholder="0,00 €"
             id="price"
             type="number"
             value={price}
@@ -158,9 +168,7 @@ const Publish = ({ isLoggedIn }) => {
             }}
           />
         </div>
-        <div className="cta-section-publish">
-          <button className="publish-cta">Ajouter</button>
-        </div>
+        <button className="publish-cta">Ajouter</button>
       </form>
     </section>
   );

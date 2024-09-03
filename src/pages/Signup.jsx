@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Cookies from "js-cookie";
 import { Link } from "react-router-dom";
+import { MdAddPhotoAlternate } from "react-icons/md";
 
 const Signup = ({ setIsLoggedIn, isLoggedIn }) => {
   const navigate = useNavigate();
@@ -10,20 +11,26 @@ const Signup = ({ setIsLoggedIn, isLoggedIn }) => {
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
   const [newsletter, setNewsletter] = useState(false);
-
-  const data = {
-    email,
-    username,
-    password,
-    newsletter,
-  };
+  const [avatar, setAvatar] = useState(null);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
+      const formData = new FormData();
+      formData.append("avatar", avatar);
+      formData.append("username", username);
+      formData.append("email", email);
+      formData.append("password", password);
+      formData.append("newsletter", newsletter);
+
       const serverResponse = await axios.post(
         "https://lereacteur-vinted-api.herokuapp.com/user/signup",
-        data
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
       );
       //   console.log(serverResponse.data);
       if (serverResponse.data.token) {
@@ -44,6 +51,28 @@ const Signup = ({ setIsLoggedIn, isLoggedIn }) => {
         <div className="container">
           <h2 className="signup-title">S'inscrire</h2>
           <form className="signup-login" onSubmit={handleSubmit}>
+            <label htmlFor="picture">
+              {!avatar && (
+                <div className="add-avatar">
+                  <MdAddPhotoAlternate />
+                </div>
+              )}
+            </label>
+            <input
+              type="file"
+              style={{ display: "none" }}
+              id="picture"
+              onChange={(event) => {
+                setAvatar(event.target.files[0]);
+              }}
+            />
+            {avatar && (
+              <img
+                className="preview-avatar"
+                src={URL.createObjectURL(avatar)}
+                alt=""
+              />
+            )}
             <input
               type="text"
               placeholder="Nom d'utilisateur"
