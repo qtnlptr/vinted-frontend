@@ -1,0 +1,18 @@
+:root {
+  --green: #2db0ba;
+}
+
+.login-title {
+  text-align: center;
+}
+
+.go-sign-up {
+  text-align: center;
+  font-size: 14px;
+  color: var(--green);
+}
+
+.go-sign-up:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}

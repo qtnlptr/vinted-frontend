@@ -1,0 +1,86 @@
+:root {
+  --green: #2db0ba;
+}
+
+body {
+  background-color: #ffffff;
+}
+
+.signup-title {
+  text-align: center;
+}
+
+.signup-login {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+}
+
+.signup-login > input {
+  border: none;
+  width: 300px;
+  height: 40px;
+  padding: 8px;
+  border-bottom: #e9212141 1px solid;
+}
+::placeholder {
+  color: #c4c4c4;
+}
+
+input:focus {
+  outline: none;
+}
+
+.signup-login button {
+  margin-top: 16px;
+  width: 300px;
+  background-color: var(--green);
+  padding: 16px;
+  color: white;
+  border: none;
+  font-size: 16px;
+  border-radius: 4px;
+}
+
+form button:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.go-login {
+  text-align: center;
+  font-size: 14px;
+  color: var(--green);
+}
+
+.go-login:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.nl {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.check-box {
+  margin-top: 12px;
+  display: flex;
+  align-items: center;
+  width: 300px;
+  gap: 8px;
+}
+
+.check-box > p {
+  font-size: 16px;
+  color: #424242c4;
+}
+
+.nl-infos {
+  font-size: 12px;
+  width: 300px;
+  color: #9e9e9ec4;
+  line-height: 16px;
+}
