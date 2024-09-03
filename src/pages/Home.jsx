@@ -41,7 +41,9 @@ const Home = ({ filter, priceMin, priceMax, search }) => {
         <div className="container">
           <div className="hero-white-block">
             <h2>Prêt à faire du tri dans vos placards ?</h2>
-            <button className="start-selling">Commencer à vendre</button>
+            <Link to="/publish">
+              <button className="start-selling">Commencer à vendre</button>
+            </Link>
           </div>
         </div>
       </div>
@@ -56,6 +58,7 @@ const Home = ({ filter, priceMin, priceMax, search }) => {
                   <div className="owner-infos">
                     {item.owner.account.avatar ? (
                       <img
+                        className="avatar-home"
                         src={item.owner.account.avatar.secure_url}
                         alt="avatar"
                       />

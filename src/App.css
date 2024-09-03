@@ -277,6 +277,11 @@ main .container {
   margin-top: 32px;
 }
 
+.start-selling:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
 .offers {
   display: flex;
   width: 100%;
@@ -344,4 +349,10 @@ main .container {
 a {
   color: black;
   text-decoration: none;
+}
+
+.avatar-home {
+  height: 20px;
+  width: 20px;
+  object-fit: cover;
 }
